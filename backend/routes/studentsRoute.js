@@ -49,18 +49,49 @@ studentsRoute.post('/login', asyncHandler(async(req, res) =>{
 }));
 
 //Update User
-studentsRoute.put('/update', authMiddleware, (req, res) =>{
-    res.send('Update Route');
-});
+studentsRoute.put('/update', authMiddleware, asyncHandler( async (req, res) => {
+    const student = await Student.findById(req.student._id);
+    if(student){
+        student.name = req.body.name || student.name;
+        student.email = req.body.email || student.email;
+        if(req.body.password){
+            student.password = req.body.password || student.password;
+        }
+
+        const updatedStudent = await student.save();
+
+        res.json({
+            _id: updatedStudent._id,
+            name: updatedStudent.name,
+            email: updatedStudent.email,
+            token: generateToken(updatedStudent._id),
+        });
+    }
+}));
 
 //Fetch Users
-studentsRoute.get('/', authMiddleware, (req, res)=>{
-    console.log(req.headers);
-    res.send('Fetch students');
-});
+studentsRoute.get('/', asyncHandler(async(req, res)=>{
+    const student = await Student.findById(req.student._id);
+
+    if(student){
+        res.status(200);
+        res.json(student);
+    }else{
+        res.status(500);
+        throw new Error('There are no Events');
+    }
+
+}));
 
 //Delete User
-studentsRoute.delete('/:id', (req, res) => {
-    res.send('Delete Route');
-});
+studentsRoute.delete('/:id', asyncHandler(async (req, res) => {
+    try {
+        const student = await Student.findByIdAndDelete(req.params.id);
+
+        res.status(200);
+        res.send(student);
+    } catch (error) {
+        res.json(error);
+    }
+}));
 module.exports = studentsRoute;
