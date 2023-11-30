@@ -4,7 +4,9 @@
   "description": "student management app",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon backend/index.js"
+    "server": "nodemon backend/index.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently\"npm run server\" \"npm run client\""
   },
   "author": "Danny Simpson",
   "license": "MIT",
