@@ -18,7 +18,7 @@ const StudentSchema = new mongoose.Schema({
         required: true,
     },
     student_id: {
-        type: int,
+        type: String,
         required: true,
     },
 });
