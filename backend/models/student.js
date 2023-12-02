@@ -17,6 +17,10 @@ const StudentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    student_id: {
+        type: int,
+        required: true,
+    },
 });
 
 StudentSchema.pre('save', async function(next){
