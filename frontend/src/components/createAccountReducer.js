@@ -1,16 +1,16 @@
 import {CREATE_BOOK_REQUEST} from '../../actions/actionTypes'
 
-const createBookReducer = (state={}, action) => {
+const createAccountReducer = (state={}, action) => {
     switch(action.type) {
-        case CREATE_BOOK_REQUEST:
+        case CREATE_ACCOUNT_REQUEST:
             return {
                 loading: true,
             };
-            case CREATE_BOOK_SUCCESS:
+            case CREATE_ACCOUNT_SUCCESS:
                 return {
-                    book: action.payload,
+                    account: action.payload,
                 };
-                case CREATE_BOOK_FAIL:
+                case CREATE_ACCOUNT_FAIL:
                     return {
                         loading: false,
                         error: action.payload,
@@ -20,4 +20,4 @@ const createBookReducer = (state={}, action) => {
     }
 };
 
-export {createBookReducer};
+export {createAccountReducer};
