@@ -1,4 +1,4 @@
-import {CREATE_BOOK_REQUEST} from '../../actions/actionTypes'
+import {CREATE_ACCOUNT_REQUEST} from '../../actions/actionTypes'
 
 const createAccountReducer = (state={}, action) => {
     switch(action.type) {
