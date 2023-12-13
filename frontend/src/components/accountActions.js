@@ -1,10 +1,10 @@
-import {CREATE_BOOK_REQUEST} from '../actionTypes';
+import {CREATE_ACCOUNT_REQUEST} from '../actionTypes';
 
-const createBookAction = bookData => {
+const createAccountAction = accountData => {
     return async dispatch => {
     try {
             dispatch({
-                type: CREATE_BOOK_REQUEST,
+                type: CREATE_ACCOUNT_REQUEST,
             });
 
             const config = {
@@ -13,12 +13,12 @@ const createBookAction = bookData => {
             const {data} = await axios.post('api/books', bookData, config);
 
             dispatch({
-                type: CREATE_BOOK_SUCCESS,
+                type: CREATE_ACCOUNT_SUCCESS,
                 payload: data,
             });
         } catch (error) {
             dispatch({
-                type: CREATE_BOOK_FAIL,
+                type: CREATE_ACCOUNT_FAIL,
                 payload: error.reponse && error.response.data.message
             });
         }
@@ -26,4 +26,4 @@ const createBookAction = bookData => {
     };
 };
 
-export {createBookAction};
+export {createAccountAction};
