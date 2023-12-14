@@ -1,6 +1,6 @@
 # Database 
 - Mongodb: npm install mongoose
-  # mongoose.connect(process.env.MONGO_URL)
+  + mongoose.connect(process.env.MONGO_URL)
 - import axios from ' axios '
 - axios version: 1.6.2
 - set up MONGO_URL in backend .env
