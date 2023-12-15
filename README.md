@@ -11,6 +11,8 @@
 - npm i dotenv cors react-router-dom
   
 # Frontend
+- index.css: https://bootswatch.com
+- https://getbootstrap.com
 - ReactHotToast: npm install react-hot-toast
 - React framework: npm create vite@latest
 - React-router-dom version: 6.20.1
