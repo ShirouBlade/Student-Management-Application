@@ -6,7 +6,7 @@
 - set up MONGO_URL in backend .env
 
 # Backend
-- npm init
+- npm init --yes
 - npm install express
 - npm i dotenv cors react-router-dom
   
