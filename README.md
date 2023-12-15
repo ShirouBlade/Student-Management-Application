@@ -8,6 +8,7 @@
 # Backend
 - npm init
 - npm install express
+- npm i dotenv cors react-router-dom
   
 # Frontend
 - ReactHotToast: npm install react-hot-toast
