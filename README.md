@@ -13,7 +13,3 @@
 - ReactHotToast: npm install react-hot-toast
 - React framework: npm create vite@latest
 - React-router-dom version: 6.20.1
-
-  + <Routes>
-        + <Route path = '...' element={</>}/>
-  + </Routes>
