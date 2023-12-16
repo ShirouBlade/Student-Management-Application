@@ -2,11 +2,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const studentsRoute = require('./routes/studentsRoute');
+const eventsRoute = require('./routes/eventsRoute');
+const professorsRoute = require('./routes/professorsRoute');
+const coursesRoute = require('./routes/coursesRoute');
 const error = require('./middlewares/errorMiddlewareHandler');
 dotenv.config();
 require('./config/dbConnect')();
+const cors = require('cors');
 
-
+app.use(cors());
 
 const app = express();
 
@@ -15,6 +19,9 @@ app.use(express.json());
 
 //Routes
 app.use('/api/students', studentsRoute);
+app.use('/api/events', eventsRoute);
+app.use('/api/professors', professorsRoute);
+app.use('/api/courese', coursesRoute);
 
 console.log(process.env.JWT_SECRET_KEY);
 //Error Middleware
