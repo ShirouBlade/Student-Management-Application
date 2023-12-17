@@ -9,18 +9,19 @@ const professorsRoute = express.Router();
 
 //Register
 professorsRoute.post('/register', asyncHandler(async(req, res) =>{
-    const {name, email, password} = req.body;
+    const {firstName, lastName, email, password} = req.body;
     const professorExists = await Professor.findOne({email: email});
     if(userExists){
         throw new Error('professor Exists already');
     }
-    const professorCreated = await Professor.create({name, email, password});
+    const professorCreated = await Professor.create({firstName, lastName, email, password});
     res.send(userCreated);
     //set status code
     res.status(200);
     res.json({
         _id: professorCreated._id,
-        name: professorCreated.name,
+        firstName: professorCreated.firstName,
+        lastName: professorCreated.lastName,
         password: professorCreated.password,
         email: professorCreated.password,
         token: generateToken(professor._id),
@@ -37,7 +38,8 @@ professorsRoute.post('/login', asyncHandler(async(req, res) =>{
         res.status(200);
         res.json({
             _id: professor._id,
-            name: professor.name,
+            firstName: professor.firstName,
+            lastName: professor.lastName,
             password: professor.password,
             email: professor.password,
             token: generateToken(professor._id),
@@ -52,7 +54,8 @@ professorsRoute.post('/login', asyncHandler(async(req, res) =>{
 professorsRoute.put('/update', authMiddleware, asyncHandler( async (req, res) => {
     const professor = await Professor.findById(req.professor._id);
     if(professor){
-        professor.name = req.body.name || professor.name;
+        professor.firstName = req.body.firstName || professor.firstName;
+        professor.lastName = req.body.lastName || professor.lastName;
         professor.email = req.body.email || professor.email;
         if(req.body.password){
             professor.password = req.body.password || professor.password;
@@ -62,7 +65,8 @@ professorsRoute.put('/update', authMiddleware, asyncHandler( async (req, res) =>
 
         res.json({
             _id: updatedProfessor._id,
-            name: updatedProfessor.name,
+            firstName: updatedProfessor.firstName,
+            lastName: updatedProfessor.lastName,
             email: updatedProfessor.email,
             token: generateToken(updatedProfessor._id),
         });
@@ -78,7 +82,7 @@ professorsRoute.get('/', asyncHandler(async(req, res)=>{
         res.json(professor);
     }else{
         res.status(500);
-        throw new Error('There are no Events');
+        throw new Error('There is no professor with that id');
     }
 
 }));
@@ -86,10 +90,10 @@ professorsRoute.get('/', asyncHandler(async(req, res)=>{
 //Delete User
 professorsRoute.delete('/:id', asyncHandler(async (req, res) => {
     try {
-        const student = await Student.findByIdAndDelete(req.params.id);
+        const professor = await Professor.findByIdAndDelete(req.params.id);
 
         res.status(200);
-        res.send(student);
+        res.send(professor);
     } catch (error) {
         res.json(error);
     }
