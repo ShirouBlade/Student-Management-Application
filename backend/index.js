@@ -21,7 +21,7 @@ app.use(express.json());
 app.use('/api/students', studentsRoute);
 app.use('/api/events', eventsRoute);
 app.use('/api/professors', professorsRoute);
-app.use('/api/courese', coursesRoute);
+app.use('/api/courses', coursesRoute);
 
 console.log(process.env.JWT_SECRET_KEY);
 //Error Middleware
