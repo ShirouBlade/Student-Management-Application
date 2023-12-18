@@ -6,7 +6,7 @@ import {
 
 } from '../../actions/datatypes';
 
-const CreateProfessorReducers = (state={}, action) => {
+const createProfessorReducers = (state={}, action) => {
     switch(action.type){
         case CREATE_PROFESSORDATA_REQUEST:
             return{
@@ -26,4 +26,4 @@ const CreateProfessorReducers = (state={}, action) => {
             return state;
     };
 };
-export{CreateProfessorReducers};
+export{createProfessorReducers};
