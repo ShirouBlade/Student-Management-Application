@@ -4,7 +4,7 @@ import {
     PROFESSORPROFILE_DETAIL_SUCCESS,
   } from '../../actions/datatypes';
   
-  const professordetailreducer = (state = {}, action) => {
+  const professorDetailReducer = (state = {}, action) => {
     switch (action.type) {
       case PROFESSORPROFILE_DETAIL_REQUEST:
         return {
@@ -25,4 +25,4 @@ import {
     }
   };
   
-  export default professordetailreducer;
+  export default professorDetailReducer;
