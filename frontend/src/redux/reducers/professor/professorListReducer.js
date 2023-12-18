@@ -4,7 +4,7 @@ import {
     FETCH_PROFESSORDATA_SUCCESS,
   } from '../../actions/datatypes';
   
-  const professorlistreducer = (state = [], action) => {
+  const professorListReducer = (state = [], action) => {
     switch (action.type) {
       case FETCH_PROFESSORDATA_REQUEST:
         return {
@@ -25,4 +25,4 @@ import {
     }
   };
   
-  export default professorlistreducer;
+  export default professorListReducer;
