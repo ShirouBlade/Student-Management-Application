@@ -8,7 +8,6 @@
 - npm init --yes
 - npm install express
 - npm i dotenv cors react-router-dom
-  
 # Frontend
 - index.css: https://bootswatch.com
 - https://getbootstrap.com
