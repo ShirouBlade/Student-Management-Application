@@ -4,7 +4,6 @@
 - import axios from ' axios '
 - axios version: 1.6.2
 - set up MONGO_URL in backend .env
-
 # Backend
 - npm init --yes
 - npm install express
